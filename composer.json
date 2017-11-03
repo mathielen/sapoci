@@ -1,0 +1,35 @@
+{
+  "name": "mathielen/sapoci",
+  "type": "library",
+  "description": "SAP OCI Open Catalog Interface",
+  "keywords": [
+    "oci",
+    "sap",
+    "open",
+    "catalog",
+    "interface"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Markus Thielen",
+      "email": "markus@logicx.de"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "symfony/form": "^3.3",
+    "beberlei/assert": "@stable",
+    "doctrine/collections": "^1.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "@stable"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mathielen\\SapOci\\": "src/Mathielen/SapOci/"
+    }
+  },
+  "autoload-dev": {
+  }
+}
