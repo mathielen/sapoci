@@ -18,7 +18,7 @@
   ],
   "require": {
     "php": ">=7.0.0",
-    "symfony/form": "^3.3",
+    "symfony/form": "^3.2",
     "beberlei/assert": "@stable",
     "doctrine/collections": "^1.4"
   },
