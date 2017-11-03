@@ -69,6 +69,11 @@ class Oci40BasketItem implements OciBasketItemInterface
 
     private $custField5;
 
+    public static function create()
+    {
+        return new self();
+    }
+
     /**
      * @return mixed
      */
@@ -83,6 +88,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**
@@ -99,6 +106,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setMatnr($matnr)
     {
         $this->matnr = $matnr;
+
+        return $this;
     }
 
     /**
@@ -115,6 +124,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+
+        return $this;
     }
 
     /**
@@ -131,6 +142,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setUnit($unit)
     {
         $this->unit = $unit;
+
+        return $this;
     }
 
     /**
@@ -147,6 +160,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setPrice($price)
     {
         $this->price = $price;
+
+        return $this;
     }
 
     /**
@@ -163,6 +178,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setCurrency($currency)
     {
         $this->currency = $currency;
+
+        return $this;
     }
 
     /**
@@ -179,6 +196,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setPriceUnit($priceUnit)
     {
         $this->priceUnit = $priceUnit;
+
+        return $this;
     }
 
     /**
@@ -195,6 +214,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setLeadtime($leadtime)
     {
         $this->leadtime = $leadtime;
+
+        return $this;
     }
 
     /**
@@ -211,6 +232,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setLongText($longText)
     {
         $this->longText = $longText;
+
+        return $this;
     }
 
     /**
@@ -227,6 +250,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setVendor($vendor)
     {
         $this->vendor = $vendor;
+
+        return $this;
     }
 
     /**
@@ -243,6 +268,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setVendorMat($vendorMat)
     {
         $this->vendorMat = $vendorMat;
+
+        return $this;
     }
 
     /**
@@ -259,6 +286,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setManufactCode($manufactCode)
     {
         $this->manufactCode = $manufactCode;
+
+        return $this;
     }
 
     /**
@@ -275,6 +304,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setManufactMat($manufactMat)
     {
         $this->manufactMat = $manufactMat;
+
+        return $this;
     }
 
     /**
@@ -291,6 +322,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setMatGroup($matGroup)
     {
         $this->matGroup = $matGroup;
+
+        return $this;
     }
 
     /**
@@ -307,6 +340,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setService($service)
     {
         $this->service = $service;
+
+        return $this;
     }
 
     /**
@@ -323,6 +358,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setContract($contract)
     {
         $this->contract = $contract;
+
+        return $this;
     }
 
     /**
@@ -339,6 +376,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setContractItem($contractItem)
     {
         $this->contractItem = $contractItem;
+
+        return $this;
     }
 
     /**
@@ -355,6 +394,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setExtQuoteId($extQuoteId)
     {
         $this->extQuoteId = $extQuoteId;
+
+        return $this;
     }
 
     /**
@@ -371,6 +412,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setExtQuoteItem($extQuoteItem)
     {
         $this->extQuoteItem = $extQuoteItem;
+
+        return $this;
     }
 
     /**
@@ -387,6 +430,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setExtProductId($extProductId)
     {
         $this->extProductId = $extProductId;
+
+        return $this;
     }
 
     /**
@@ -403,6 +448,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setAttachment($attachment)
     {
         $this->attachment = $attachment;
+
+        return $this;
     }
 
     /**
@@ -419,6 +466,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setAttachmentTitle($attachmentTitle)
     {
         $this->attachmentTitle = $attachmentTitle;
+
+        return $this;
     }
 
     /**
@@ -435,6 +484,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setAttachmentPurpose($attachmentPurpose)
     {
         $this->attachmentPurpose = $attachmentPurpose;
+
+        return $this;
     }
 
     /**
@@ -451,6 +502,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setExtSchemaType($extSchemaType)
     {
         $this->extSchemaType = $extSchemaType;
+
+        return $this;
     }
 
     /**
@@ -467,6 +520,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setExtCategoryId($extCategoryId)
     {
         $this->extCategoryId = $extCategoryId;
+
+        return $this;
     }
 
     /**
@@ -483,6 +538,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setExtCategory($extCategory)
     {
         $this->extCategory = $extCategory;
+
+        return $this;
     }
 
     /**
@@ -499,6 +556,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setSldSysName($sldSysName)
     {
         $this->sldSysName = $sldSysName;
+
+        return $this;
     }
 
     /**
@@ -515,6 +574,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setCustField1($custField1)
     {
         $this->custField1 = $custField1;
+
+        return $this;
     }
 
     /**
@@ -531,6 +592,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setCustField2($custField2)
     {
         $this->custField2 = $custField2;
+
+        return $this;
     }
 
     /**
@@ -547,6 +610,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setCustField3($custField3)
     {
         $this->custField3 = $custField3;
+
+        return $this;
     }
 
     /**
@@ -563,6 +628,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setCustField4($custField4)
     {
         $this->custField4 = $custField4;
+
+        return $this;
     }
 
     /**
@@ -579,6 +646,8 @@ class Oci40BasketItem implements OciBasketItemInterface
     public function setCustField5($custField5)
     {
         $this->custField5 = $custField5;
+
+        return $this;
     }
 
     /**

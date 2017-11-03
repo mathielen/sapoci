@@ -52,5 +52,4 @@ class OciFormbuilderFactoryTest extends TestCase
         $this->assertTrue($formBuilder->has('NEW_ITEM-DESCRIPTION'));
         $this->assertTrue($formBuilder->has('NEW_ITEM-LONGTEXT_1:132'));
     }
-
 }
