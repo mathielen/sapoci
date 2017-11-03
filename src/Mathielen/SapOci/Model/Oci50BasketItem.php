@@ -29,4 +29,11 @@ class Oci50BasketItem extends Oci40BasketItem
 
         return $this;
     }
+
+    public function getFields()
+    {
+        return parent::getFields() + [
+                'NEW_ITEM-TAX' => $this->getTax()
+            ];
+    }
 }
