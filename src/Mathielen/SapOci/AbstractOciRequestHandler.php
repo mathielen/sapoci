@@ -12,7 +12,15 @@ abstract class AbstractOciRequestHandler implements OciRequestHandlerInterface
 
     protected function getHookUrlFromRequest(Request $request)
     {
-        return $request->get('HOOK_URL');
+        //first check POST
+        $hookUrl = $request->request->has('HOOK_URL') ? $request->request->get('HOOK_URL') : null;
+
+        //then check GET
+        if (empty($hookUrl)) {
+            $hookUrl = $request->query->has('HOOK_URL') ? $request->query->get('HOOK_URL') : null;
+        }
+
+        return $hookUrl;
     }
 
     public function handle(Request $request)
