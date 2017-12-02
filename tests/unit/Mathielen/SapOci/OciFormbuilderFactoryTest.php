@@ -2,16 +2,14 @@
 
 namespace Mathielen\SapOci;
 
-use Doctrine\Common\Util\Debug;
 use Mathielen\SapOci\Model\Oci40BasketItem;
+use Mathielen\SapOci\Model\Oci50BasketItem;
 use Mathielen\SapOci\Model\OciBasket;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Form\Test\FormBuilderInterface;
 
 class OciFormbuilderFactoryTest extends TestCase
 {
@@ -41,9 +39,11 @@ class OciFormbuilderFactoryTest extends TestCase
     {
         $basket = new OciBasket();
 
-        $item = new Oci40BasketItem();
-        $item->setDescription('description');
-        $item->setLongText('longtext');
+        $item =
+            Oci50BasketItem::create()
+                ->setDescription('description')
+                ->setLongText('longtext')
+                ->setTax(19);
 
         $basket->addItem($item);
 
@@ -51,5 +51,6 @@ class OciFormbuilderFactoryTest extends TestCase
 
         $this->assertTrue($formBuilder->has('NEW_ITEM-DESCRIPTION'));
         $this->assertTrue($formBuilder->has('NEW_ITEM-LONGTEXT_1:132'));
+        $this->assertTrue($formBuilder->has('NEW_ITEM-TAX'));
     }
 }

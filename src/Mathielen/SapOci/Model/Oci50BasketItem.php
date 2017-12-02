@@ -3,6 +3,8 @@
 
 namespace Mathielen\SapOci\Model;
 
+use Assert\Assertion;
+
 class Oci50BasketItem extends Oci40BasketItem
 {
     private $tax;
@@ -25,6 +27,8 @@ class Oci50BasketItem extends Oci40BasketItem
      */
     public function setTax($tax)
     {
+        Assertion::maxLength((string)$tax, 5, "tax max. length is 5");
+
         $this->tax = $tax;
 
         return $this;
