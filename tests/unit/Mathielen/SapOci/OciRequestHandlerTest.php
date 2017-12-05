@@ -22,6 +22,18 @@ class OciRequestHandlerTest extends TestCase
         $handler->handle($request);
     }
 
+    /**
+     * @expectedException \Mathielen\SapOci\Exception\OciAccessDeniedException
+     * @expectedExceptionMessage OCI Access denied for call
+     */
+    public function testHandleAccessDenied()
+    {
+        $handler = new TestOciRequestHandler(false);
+        $request = new Request();
+
+        $handler->handle($request);
+    }
+
     public function testHandleHookUrlPostBeatsGet()
     {
         $handler = new TestOciRequestHandler();
@@ -47,8 +59,16 @@ class OciRequestHandlerTest extends TestCase
 
 class TestOciRequestHandler extends AbstractOciRequestHandler
 {
-    protected function validateRequest(Request $request)
+
+    private $isValid;
+
+    public function __construct($isValid = true)
     {
-        //nothing
+        $this->isValid = $isValid;
+    }
+
+    protected function isRequestValid(Request $request): bool
+    {
+        return $this->isValid;
     }
 }
