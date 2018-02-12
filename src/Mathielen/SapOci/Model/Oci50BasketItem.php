@@ -11,7 +11,7 @@ class Oci50BasketItem extends Oci40BasketItem
 
     public static function create()
     {
-        return new self();
+        return new static();
     }
 
     /**
