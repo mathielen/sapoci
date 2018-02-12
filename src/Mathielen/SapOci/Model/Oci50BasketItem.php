@@ -9,11 +9,6 @@ class Oci50BasketItem extends Oci40BasketItem
 {
     private $tax;
 
-    public static function create()
-    {
-        return new static();
-    }
-
     /**
      * @return mixed
      */

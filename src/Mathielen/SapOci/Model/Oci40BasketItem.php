@@ -73,7 +73,7 @@ class Oci40BasketItem implements OciBasketItemInterface
 
     public static function create()
     {
-        return new self();
+        return new static();
     }
 
     /**
