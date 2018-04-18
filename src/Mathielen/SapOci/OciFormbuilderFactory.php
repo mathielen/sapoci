@@ -47,11 +47,11 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 
     protected function addFormField(FormBuilderInterface $formBuilder, $formFieldName)
     {
-        if (preg_match('/^NEW_ITEM-LONGTEXT/', $formFieldName)) {
+        /*if (preg_match('/^NEW_ITEM-LONGTEXT/', $formFieldName)) {
             $formBuilder->add($formFieldName, HiddenType::class, ['label' => false]);
-        } else {
+        } else {*/
             $formBuilder->add($formFieldName, CollectionType::class, ['entry_type' => HiddenType::class, 'label' => false]);
-        }
+        //}
     }
 
     /**

@@ -761,7 +761,7 @@ class Oci40BasketItem implements OciBasketItemInterface
     public static function addFieldToFormData($formFieldName, $fieldValue, $lineNum, array &$formData)
     {
         if ($formFieldName === 'NEW_ITEM-LONGTEXT') {
-            $formData['NEW_ITEM-LONGTEXT_' . $lineNum . ':132'] = $fieldValue;
+            $formData['NEW_ITEM-LONGTEXT_' . $lineNum . ':132'][] = $fieldValue;
             return;
         }
 
