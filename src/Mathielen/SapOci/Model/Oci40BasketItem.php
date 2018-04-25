@@ -169,7 +169,7 @@ class Oci40BasketItem implements OciBasketItemInterface
      */
     public function setPrice($price)
     {
-        Assertion::greaterThan($price, 0, "price must be greated than 0");
+        Assertion::greaterThan($price, 0, "price must be greater than 0");
         Assertion::maxLength((string)$price, 15, "price max. length is 15");
 
         $this->price = $price;
