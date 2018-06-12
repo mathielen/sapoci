@@ -27,6 +27,13 @@ class OciBasket implements OciBasketInterface
         return $this->items;
     }
 
+    public function addItems(array $items)
+    {
+        foreach ($items as $item) {
+            $this->addItem($item);
+        }
+    }
+
     public function addItem(OciBasketItemInterface $basketItem)
     {
         $this->items[] = $basketItem;
