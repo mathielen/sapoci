@@ -107,7 +107,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setMatnr($matnr)
     {
-        Assertion::maxLength((string)$matnr, 40, "Matnr max. length is 40");
+        self::enforeLength($matnr, 'matnr', 40);
 
         $this->matnr = $matnr;
 
@@ -127,7 +127,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setQuantity($quantity)
     {
-        Assertion::maxLength((string)$quantity, 15, "Quantity max. length is 15");
+        self::enforeLength($quantity, 'quantity', 15);
 
         $this->quantity = $quantity;
 
@@ -147,7 +147,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setUnit($unit)
     {
-        Assertion::maxLength((string)$unit, 3, "Unit max. length is 3");
+        self::enforeLength($unit, 'unit', 3);
 
         $this->unit = $unit;
 
@@ -185,7 +185,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setCurrency($currency)
     {
-        Assertion::maxLength((string)$currency, 5, "currency max. length is 5");
+        self::enforeLength($currency, 'currency', 5);
 
         $this->currency = $currency;
 
@@ -205,7 +205,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setPriceUnit($priceUnit)
     {
-        Assertion::maxLength((string)$priceUnit, 5, "priceUnit max. length is 5");
+        self::enforeLength($priceUnit, 'priceUnit', 5);
 
         $this->priceUnit = $priceUnit;
 
@@ -225,7 +225,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setLeadtime($leadtime)
     {
-        Assertion::maxLength((string)$leadtime, 5, "leadtime max. length is 5");
+        self::enforeLength($leadtime, 'leadtime', 5);
 
         $this->leadtime = $leadtime;
 
@@ -263,7 +263,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setVendor($vendor)
     {
-        Assertion::maxLength((string)$vendor, 10, "vendor max. length is 10");
+        self::enforeLength($vendor, 'vendor', 10);
 
         $this->vendor = $vendor;
 
@@ -283,7 +283,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setVendorMat($vendorMat)
     {
-        Assertion::maxLength((string)$vendorMat, 40, "vendorMat max. length is 40");
+        self::enforeLength($vendorMat, 'vendorMat', 40);
 
         $this->vendorMat = $vendorMat;
 
@@ -303,7 +303,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setManufactCode($manufactCode)
     {
-        Assertion::maxLength((string)$manufactCode, 10, "manufactCode max. length is 10");
+        self::enforeLength($manufactCode, 'manufactCode', 10);
 
         $this->manufactCode = $manufactCode;
 
@@ -323,7 +323,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setManufactMat($manufactMat)
     {
-        Assertion::maxLength((string)$manufactMat, 40, "manufactMat max. length is 40");
+        self::enforeLength($manufactMat, 'manufactMat', 40);
 
         $this->manufactMat = $manufactMat;
 
@@ -343,7 +343,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setMatGroup($matGroup)
     {
-        Assertion::maxLength((string)$matGroup, 10, "matGroup max. length is 10");
+        self::enforeLength($matGroup, 'matGroup', 10);
 
         $this->matGroup = $matGroup;
 
@@ -363,7 +363,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setService($service)
     {
-        Assertion::maxLength((string)$service, 1, "service max. length is 1");
+        self::enforeLength($service, 'service', 1);
 
         $this->service = $service;
 
@@ -383,7 +383,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setContract($contract)
     {
-        Assertion::maxLength((string)$contract, 10, "contract max. length is 10");
+        self::enforeLength($contract, 'contract', 10);
 
         $this->contract = $contract;
 
@@ -403,7 +403,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setContractItem($contractItem)
     {
-        Assertion::maxLength((string)$contractItem, 5, "contractItem max. length is 5");
+        self::enforeLength($contractItem, 'contractItem', 5);
 
         $this->contractItem = $contractItem;
 
@@ -423,7 +423,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setExtQuoteId($extQuoteId)
     {
-        Assertion::maxLength((string)$extQuoteId, 35, "extQuoteId max. length is 35");
+        self::enforeLength($extQuoteId, 'extQuoteId', 35);
 
         $this->extQuoteId = $extQuoteId;
 
@@ -443,7 +443,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setExtQuoteItem($extQuoteItem)
     {
-        Assertion::maxLength((string)$extQuoteItem, 10, "extQuoteItem max. length is 10");
+        self::enforeLength($extQuoteItem, 'extQuoteItem', 10);
 
         $this->extQuoteItem = $extQuoteItem;
 
@@ -463,7 +463,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setExtProductId($extProductId)
     {
-        Assertion::maxLength((string)$extProductId, 40, "extProductId max. length is 40");
+        self::enforeLength($extProductId, 'extProductId', 40);
 
         $this->extProductId = $extProductId;
 
@@ -483,7 +483,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setAttachment($attachment)
     {
-        Assertion::maxLength((string)$attachment, 255, "attachment max. length is 255");
+        self::enforeLength($attachment, 'attachment', 255);
 
         $this->attachment = $attachment;
 
@@ -503,7 +503,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setAttachmentTitle($attachmentTitle)
     {
-        Assertion::maxLength((string)$attachmentTitle, 255, "attachmentTitle max. length is 255");
+        self::enforeLength($attachmentTitle, 'attachmentTitle', 255);
 
         $this->attachmentTitle = $attachmentTitle;
 
@@ -523,7 +523,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setAttachmentPurpose($attachmentPurpose)
     {
-        Assertion::maxLength((string)$attachmentPurpose, 1, "attachmentPurpose max. length is 1");
+        self::enforeLength($attachmentPurpose, 'attachmentPurpose', 1);
 
         $this->attachmentPurpose = $attachmentPurpose;
 
@@ -543,7 +543,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setExtSchemaType($extSchemaType)
     {
-        Assertion::maxLength((string)$extSchemaType, 10, "extSchemaType max. length is 10");
+        self::enforeLength($extSchemaType, 'extSchemaType', 10);
 
         $this->extSchemaType = $extSchemaType;
 
@@ -563,7 +563,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setExtCategoryId($extCategoryId)
     {
-        Assertion::maxLength((string)$extCategoryId, 60, "extCategoryId max. length is 60");
+        self::enforeLength($extCategoryId, 'extCategoryId', 60);
 
         $this->extCategoryId = $extCategoryId;
 
@@ -583,7 +583,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setExtCategory($extCategory)
     {
-        Assertion::maxLength((string)$extCategory, 40, "extCategory max. length is 40");
+        self::enforeLength($extCategory, 'extCategory', 40);
 
         $this->extCategory = $extCategory;
 
@@ -603,7 +603,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setSldSysName($sldSysName)
     {
-        Assertion::maxLength((string)$sldSysName, 60, "sldSysName max. length is 60");
+        self::enforeLength($sldSysName, 'sldSysName', 60);
 
         $this->sldSysName = $sldSysName;
 
@@ -623,7 +623,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setCustField1($custField1)
     {
-        Assertion::maxLength((string)$custField1, 10, "custField1 max. length is 10");
+        self::enforeLength($custField1, 'custField1', 10);
 
         $this->custField1 = $custField1;
 
@@ -643,7 +643,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setCustField2($custField2)
     {
-        Assertion::maxLength((string)$custField2, 10, "custField2 max. length is 10");
+        self::enforeLength($custField2, 'custField2', 10);
 
         $this->custField2 = $custField2;
 
@@ -663,7 +663,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setCustField3($custField3)
     {
-        Assertion::maxLength((string)$custField3, 10, "custField3 max. length is 10");
+        self::enforeLength($custField3, 'custField3', 10);
 
         $this->custField3 = $custField3;
 
@@ -683,7 +683,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setCustField4($custField4)
     {
-        Assertion::maxLength((string)$custField4, 20, "custField4 max. length is 20");
+        self::enforeLength($custField4, 'custField4', 20);
 
         $this->custField4 = $custField4;
 
@@ -703,7 +703,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setCustField5($custField5)
     {
-        Assertion::maxLength((string)$custField5, 255, "custField5 max. length is 255"); //even though documentations says 50
+        self::enforeLength($custField5, 'custField5', 255); //even though documentations says 50
 
         $this->custField5 = $custField5;
 
@@ -712,10 +712,8 @@ class OciBaseBasketItem implements OciBasketItemInterface
 
     /**
      * Returns associated array of field=>value
-     *
-     * @return array
      */
-    public function getFields()
+    public function getFields(): array
     {
         return [
             'NEW_ITEM-DESCRIPTION' => $this->getDescription(),
@@ -766,6 +764,11 @@ class OciBaseBasketItem implements OciBasketItemInterface
     public function toArray()
     {
         return array_filter(get_object_vars($this));
+    }
+
+    private static function enforeLength(string $field, string $name, int $maxLen): void
+    {
+        Assertion::maxLength((string)$field, $maxLen, "$name max. length is $maxLen. Was '$field'.");
     }
 
 }
