@@ -3,33 +3,25 @@
 
 namespace Mathielen\SapOci\Model;
 
-use Assert\Assertion;
-
 class Oci50BasketItem extends Oci40BasketItem
 {
     private $tax;
 
-    /**
-     * @return mixed
-     */
     public function getTax()
     {
         return $this->tax;
     }
 
-    /**
-     * @param mixed $tax
-     */
     public function setTax($tax)
     {
-        Assertion::maxLength((string)$tax, 5, "tax max. length is 5");
+        self::enforeLength($tax, 'tax', 5);
 
         $this->tax = $tax;
 
         return $this;
     }
 
-    public function getFields()
+    public function getFields(): array
     {
         return parent::getFields() + [
                 'NEW_ITEM-TAX' => $this->getTax()

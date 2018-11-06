@@ -167,6 +167,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setPrice($price)
     {
+        Assertion::greaterThan($price, 0, "price must be greater than 0");
+        self::enforeLength($price, 'price', 15);
+
         $this->price = $price;
 
         return $this;
@@ -761,12 +764,12 @@ class OciBaseBasketItem implements OciBasketItemInterface
         $formData[$formFieldName][$lineNum] = $fieldValue;
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         return array_filter(get_object_vars($this));
     }
 
-    private static function enforeLength(string $field, string $name, int $maxLen): void
+    protected static function enforeLength(string $field, string $name, int $maxLen): void
     {
         Assertion::maxLength((string)$field, $maxLen, "$name max. length is $maxLen. Was '$field'.");
     }
