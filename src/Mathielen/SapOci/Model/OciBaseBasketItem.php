@@ -769,7 +769,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
         return array_filter(get_object_vars($this));
     }
 
-    protected static function enforeLength(string $field, string $name, int $maxLen): void
+    protected static function enforeLength($field, string $name, int $maxLen): void
     {
         Assertion::maxLength((string)$field, $maxLen, "$name max. length is $maxLen. Was '$field'.");
     }
