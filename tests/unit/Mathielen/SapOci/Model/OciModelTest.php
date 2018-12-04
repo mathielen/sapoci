@@ -39,7 +39,7 @@ class OciModelTest extends TestCase
             $methodName = $method->getName();
 
             //only non-constrainted method
-            if ($methodName === 'setLongText') {
+            if (in_array($methodName, ['setDescription', 'setLongText'])) {
                 continue;
             }
             if (substr($methodName, 0, 3) !== 'set') {
