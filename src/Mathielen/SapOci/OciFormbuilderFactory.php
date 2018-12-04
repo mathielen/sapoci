@@ -57,13 +57,18 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
     /**
      * @inheritdoc
      */
-    public function factor(OciBasketInterface $basket)
+    public function factor(OciBasketInterface $basket, bool $csrfTokenEnabled = true)
     {
         $formData = $this->buildFormData($basket);
 
+        $defaultOptions = [];
+        if ($csrfTokenEnabled) {
+            $defaultOptions['csrf_protection'] = false;
+        }
+
         $formBuilder = $this
             ->formFactory
-            ->createNamedBuilder(null, FormType::class, $formData, ['csrf_protection' => false]);
+            ->createNamedBuilder(null, FormType::class, $formData, $defaultOptions);
 
         foreach (array_keys($formData) as $formFieldName) {
             $this->addFormField($formBuilder, $formFieldName);
