@@ -89,6 +89,8 @@ class OciBaseBasketItem implements OciBasketItemInterface
      */
     public function setDescription($description)
     {
+        self::enforeLength($description, 'matnr', 40);
+
         $this->description = $description;
 
         return $this;
