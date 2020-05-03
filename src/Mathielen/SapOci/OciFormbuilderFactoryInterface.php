@@ -7,9 +7,5 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 interface OciFormbuilderFactoryInterface
 {
-
-    /**
-     * @return FormBuilderInterface
-     */
-    public function factor(OciBasketInterface $basket);
+	public function factor(OciBasketInterface $basket): FormBuilderInterface;
 }

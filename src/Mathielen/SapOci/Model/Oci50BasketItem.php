@@ -1,30 +1,29 @@
 <?php
 
-
 namespace Mathielen\SapOci\Model;
 
 class Oci50BasketItem extends Oci40BasketItem
 {
-    private $tax;
+	private $tax;
 
-    public function getTax()
-    {
-        return $this->tax;
-    }
+	public function getTax(): ?string
+	{
+		return $this->tax;
+	}
 
-    public function setTax($tax)
-    {
-        self::enforeLength($tax, 'tax', 5);
+	public function setTax(string $tax): self
+	{
+		self::enforeLength($tax, 'tax', 5);
 
-        $this->tax = $tax;
+		$this->tax = $tax;
 
-        return $this;
-    }
+		return $this;
+	}
 
-    public function getFields(): array
-    {
-        return parent::getFields() + [
-                'NEW_ITEM-TAX' => $this->getTax()
-            ];
-    }
+	public function getFields(): array
+	{
+		return parent::getFields() + [
+				'NEW_ITEM-TAX' => $this->getTax(),
+			];
+	}
 }

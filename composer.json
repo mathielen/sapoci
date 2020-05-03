@@ -7,7 +7,9 @@
     "sap",
     "open",
     "catalog",
-    "interface"
+    "interface",
+    "commerce",
+    "e-commerce"
   ],
   "license": "MIT",
   "authors": [
@@ -17,7 +19,7 @@
     }
   ],
   "require": {
-    "php": ">=7.0.0",
+    "php": ">=7.3",
     "symfony/form": "~3.4|~4.0",
     "symfony/http-foundation": "~3.4|~4.0",
     "beberlei/assert": "@stable",
@@ -30,7 +32,5 @@
     "psr-4": {
       "Mathielen\\SapOci\\": "src/Mathielen/SapOci/"
     }
-  },
-  "autoload-dev": {
   }
 }
