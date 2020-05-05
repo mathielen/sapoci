@@ -80,9 +80,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->description;
 	}
 
-	public function setDescription(string $description): self
+	public function setDescription(?string $description = null): self
 	{
-		self::enforeLength($description, 'description', 40);
+		self::enforceLength('description', 40, $description);
 
 		$this->description = $description;
 
@@ -94,9 +94,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->matnr;
 	}
 
-	public function setMatnr(string $matnr): self
+	public function setMatnr(?string $matnr = null): self
 	{
-		self::enforeLength($matnr, 'matnr', 40);
+		self::enforceLength('matnr', 40, $matnr);
 
 		$this->matnr = $matnr;
 
@@ -108,9 +108,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->quantity;
 	}
 
-	public function setQuantity(string $quantity): self
+	public function setQuantity(?string $quantity = null): self
 	{
-		self::enforeLength($quantity, 'quantity', 15);
+		self::enforceLength('quantity', 15, $quantity);
 
 		$this->quantity = $quantity;
 
@@ -122,9 +122,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->unit;
 	}
 
-	public function setUnit(string $unit): self
+	public function setUnit(?string $unit = null): self
 	{
-		self::enforeLength($unit, 'unit', 3);
+		self::enforceLength('unit', 3, $unit);
 
 		$this->unit = $unit;
 
@@ -136,9 +136,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->price;
 	}
 
-	public function setPrice(string $price): self
+	public function setPrice(?string $price = null): self
 	{
-		self::enforeLength($price, 'price', 15);
+		self::enforceLength('price', 15, $price);
 
 		$this->price = $price;
 
@@ -150,9 +150,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->currency;
 	}
 
-	public function setCurrency(string $currency): self
+	public function setCurrency(?string $currency = null): self
 	{
-		self::enforeLength($currency, 'currency', 5);
+		self::enforceLength('currency', 5, $currency);
 
 		$this->currency = $currency;
 
@@ -164,9 +164,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->priceUnit;
 	}
 
-	public function setPriceUnit(string $priceUnit): self
+	public function setPriceUnit(?string $priceUnit = null): self
 	{
-		self::enforeLength($priceUnit, 'priceUnit', 5);
+		self::enforceLength('priceUnit', 5, $priceUnit);
 
 		$this->priceUnit = $priceUnit;
 
@@ -178,9 +178,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->leadtime;
 	}
 
-	public function setLeadtime(string $leadtime): self
+	public function setLeadtime(?string $leadtime = null): self
 	{
-		self::enforeLength($leadtime, 'leadtime', 5);
+		self::enforceLength('leadtime', 5, $leadtime);
 
 		$this->leadtime = $leadtime;
 
@@ -192,7 +192,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->longText;
 	}
 
-	public function setLongText(string $longText): self
+	public function setLongText(?string $longText = null): self
 	{
 		$this->longText = $longText;
 
@@ -204,9 +204,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->vendor;
 	}
 
-	public function setVendor(string $vendor): self
+	public function setVendor(?string $vendor = null): self
 	{
-		self::enforeLength($vendor, 'vendor', 10);
+		self::enforceLength('vendor', 10, $vendor);
 
 		$this->vendor = $vendor;
 
@@ -218,9 +218,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->vendorMat;
 	}
 
-	public function setVendorMat(string $vendorMat): self
+	public function setVendorMat(?string $vendorMat = null): self
 	{
-		self::enforeLength($vendorMat, 'vendorMat', 40);
+		self::enforceLength('vendorMat', 40, $vendorMat);
 
 		$this->vendorMat = $vendorMat;
 
@@ -232,9 +232,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->manufactCode;
 	}
 
-	public function setManufactCode(string $manufactCode): self
+	public function setManufactCode(?string $manufactCode = null): self
 	{
-		self::enforeLength($manufactCode, 'manufactCode', 10);
+		self::enforceLength('manufactCode', 10, $manufactCode);
 
 		$this->manufactCode = $manufactCode;
 
@@ -246,9 +246,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->manufactMat;
 	}
 
-	public function setManufactMat(string $manufactMat): self
+	public function setManufactMat(?string $manufactMat = null): self
 	{
-		self::enforeLength($manufactMat, 'manufactMat', 40);
+		self::enforceLength('manufactMat', 40, $manufactMat);
 
 		$this->manufactMat = $manufactMat;
 
@@ -260,9 +260,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->matGroup;
 	}
 
-	public function setMatGroup(string $matGroup): self
+	public function setMatGroup(?string $matGroup = null): self
 	{
-		self::enforeLength($matGroup, 'matGroup', 10);
+		self::enforceLength('matGroup', 10, $matGroup);
 
 		$this->matGroup = $matGroup;
 
@@ -274,9 +274,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->service;
 	}
 
-	public function setService(string $service): self
+	public function setService(?string $service = null): self
 	{
-		self::enforeLength($service, 'service', 1);
+		self::enforceLength('service', 1, $service);
 
 		$this->service = $service;
 
@@ -288,9 +288,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->contract;
 	}
 
-	public function setContract(string $contract): self
+	public function setContract(?string $contract = null): self
 	{
-		self::enforeLength($contract, 'contract', 10);
+		self::enforceLength('contract', 10, $contract);
 
 		$this->contract = $contract;
 
@@ -302,9 +302,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->contractItem;
 	}
 
-	public function setContractItem(string $contractItem): self
+	public function setContractItem(?string $contractItem = null): self
 	{
-		self::enforeLength($contractItem, 'contractItem', 5);
+		self::enforceLength('contractItem', 5, $contractItem);
 
 		$this->contractItem = $contractItem;
 
@@ -316,9 +316,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->extQuoteId;
 	}
 
-	public function setExtQuoteId(string $extQuoteId): self
+	public function setExtQuoteId(?string $extQuoteId = null): self
 	{
-		self::enforeLength($extQuoteId, 'extQuoteId', 35);
+		self::enforceLength('extQuoteId', 35, $extQuoteId);
 
 		$this->extQuoteId = $extQuoteId;
 
@@ -330,9 +330,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->extQuoteItem;
 	}
 
-	public function setExtQuoteItem(string $extQuoteItem): self
+	public function setExtQuoteItem(?string $extQuoteItem = null): self
 	{
-		self::enforeLength($extQuoteItem, 'extQuoteItem', 10);
+		self::enforceLength('extQuoteItem', 10, $extQuoteItem);
 
 		$this->extQuoteItem = $extQuoteItem;
 
@@ -344,9 +344,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->extProductId;
 	}
 
-	public function setExtProductId(string $extProductId): self
+	public function setExtProductId(?string $extProductId = null): self
 	{
-		self::enforeLength($extProductId, 'extProductId', 40);
+		self::enforceLength('extProductId', 40, $extProductId);
 
 		$this->extProductId = $extProductId;
 
@@ -358,9 +358,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->attachment;
 	}
 
-	public function setAttachment(string $attachment): self
+	public function setAttachment(?string $attachment = null): self
 	{
-		self::enforeLength($attachment, 'attachment', 255);
+		self::enforceLength('attachment', 255, $attachment);
 
 		$this->attachment = $attachment;
 
@@ -372,9 +372,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->attachmentTitle;
 	}
 
-	public function setAttachmentTitle(string $attachmentTitle): self
+	public function setAttachmentTitle(?string $attachmentTitle = null): self
 	{
-		self::enforeLength($attachmentTitle, 'attachmentTitle', 255);
+		self::enforceLength('attachmentTitle', 255, $attachmentTitle);
 
 		$this->attachmentTitle = $attachmentTitle;
 
@@ -386,9 +386,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->attachmentPurpose;
 	}
 
-	public function setAttachmentPurpose(string $attachmentPurpose): self
+	public function setAttachmentPurpose(?string $attachmentPurpose = null): self
 	{
-		self::enforeLength($attachmentPurpose, 'attachmentPurpose', 1);
+		self::enforceLength('attachmentPurpose', 1, $attachmentPurpose);
 
 		$this->attachmentPurpose = $attachmentPurpose;
 
@@ -400,9 +400,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->extSchemaType;
 	}
 
-	public function setExtSchemaType(string $extSchemaType): self
+	public function setExtSchemaType(?string $extSchemaType = null): self
 	{
-		self::enforeLength($extSchemaType, 'extSchemaType', 10);
+		self::enforceLength('extSchemaType', 10, $extSchemaType);
 
 		$this->extSchemaType = $extSchemaType;
 
@@ -414,9 +414,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->extCategoryId;
 	}
 
-	public function setExtCategoryId(string $extCategoryId): self
+	public function setExtCategoryId(?string $extCategoryId = null): self
 	{
-		self::enforeLength($extCategoryId, 'extCategoryId', 60);
+		self::enforceLength('extCategoryId', 60, $extCategoryId);
 
 		$this->extCategoryId = $extCategoryId;
 
@@ -428,9 +428,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->extCategory;
 	}
 
-	public function setExtCategory(string $extCategory): self
+	public function setExtCategory(?string $extCategory = null): self
 	{
-		self::enforeLength($extCategory, 'extCategory', 40);
+		self::enforceLength('extCategory', 40, $extCategory);
 
 		$this->extCategory = $extCategory;
 
@@ -442,9 +442,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->sldSysName;
 	}
 
-	public function setSldSysName(string $sldSysName): self
+	public function setSldSysName(?string $sldSysName = null): self
 	{
-		self::enforeLength($sldSysName, 'sldSysName', 60);
+		self::enforceLength('sldSysName', 60, $sldSysName);
 
 		$this->sldSysName = $sldSysName;
 
@@ -456,9 +456,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->custField1;
 	}
 
-	public function setCustField1(string $custField1): self
+	public function setCustField1(?string $custField1 = null): self
 	{
-		self::enforeLength($custField1, 'custField1', 10);
+		self::enforceLength('custField1', 10, $custField1);
 
 		$this->custField1 = $custField1;
 
@@ -470,9 +470,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->custField2;
 	}
 
-	public function setCustField2(string $custField2): self
+	public function setCustField2(?string $custField2 = null): self
 	{
-		self::enforeLength($custField2, 'custField2', 10);
+		self::enforceLength('custField2', 10, $custField2);
 
 		$this->custField2 = $custField2;
 
@@ -484,9 +484,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->custField3;
 	}
 
-	public function setCustField3(string $custField3): self
+	public function setCustField3(?string $custField3 = null): self
 	{
-		self::enforeLength($custField3, 'custField3', 10);
+		self::enforceLength('custField3', 10, $custField3);
 
 		$this->custField3 = $custField3;
 
@@ -498,9 +498,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->custField4;
 	}
 
-	public function setCustField4(string $custField4): self
+	public function setCustField4(?string $custField4 = null): self
 	{
-		self::enforeLength($custField4, 'custField4', 20);
+		self::enforceLength('custField4', 20, $custField4);
 
 		$this->custField4 = $custField4;
 
@@ -512,9 +512,9 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return $this->custField5;
 	}
 
-	public function setCustField5(string $custField5): self
+	public function setCustField5(?string $custField5 = null): self
 	{
-		self::enforeLength($custField5, 'custField5', 255); //even though documentations says 50
+		self::enforceLength('custField5', 255, $custField5); //even though documentations says 50
 
 		$this->custField5 = $custField5;
 
@@ -578,8 +578,12 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		return \array_filter(\get_object_vars($this));
 	}
 
-	protected static function enforeLength($field, string $name, int $maxLen): void
+	protected static function enforceLength(string $name, int $maxLen, string $value = null): void
 	{
-		Assertion::maxLength((string) $field, $maxLen, "$name max. length is $maxLen. Was '$field'.");
+		if ($value === null) {
+			return;
+		}
+		
+		Assertion::maxLength($value, $maxLen, "$name max. length is $maxLen. Was '$value'.");
 	}
 }

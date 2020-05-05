@@ -11,9 +11,9 @@ class Oci50BasketItem extends Oci40BasketItem
 		return $this->tax;
 	}
 
-	public function setTax(string $tax): self
+	public function setTax(?string $tax = null): self
 	{
-		self::enforeLength($tax, 'tax', 5);
+		self::enforceLength('tax', 5, $tax);
 
 		$this->tax = $tax;
 
