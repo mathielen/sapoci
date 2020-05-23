@@ -580,10 +580,10 @@ class OciBaseBasketItem implements OciBasketItemInterface
 
 	protected static function enforceLength(string $name, int $maxLen, string $value = null): void
 	{
-		if ($value === null) {
+		if (null === $value) {
 			return;
 		}
-		
+
 		Assertion::maxLength($value, $maxLen, "$name max. length is $maxLen. Was '$value'.");
 	}
 }
