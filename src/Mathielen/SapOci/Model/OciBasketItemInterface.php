@@ -6,5 +6,5 @@ interface OciBasketItemInterface
 {
 	public function getFields(): array;
 
-	public static function addFieldToFormData($formFieldName, $fieldValue, $lineNum, array &$formData);
+	public static function addFieldToFormData(string $formFieldName, string $fieldValue, int $lineNum, array &$formData): void;
 }

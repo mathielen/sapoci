@@ -8,22 +8,14 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\FormFactoryInterface;
 
 class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 {
-	/**
-	 * @var FormFactory
-	 */
-	private $formFactory;
+	private FormFactoryInterface $formFactory;
+	private array $defaultFormOptions;
 
-	/**
-	 * @var array
-	 */
-	private $defaultFormOptions;
-
-	public function __construct(FormFactoryInterface $formFactory, array $defaultFormOptions = [])
+	public function __construct(FormFactoryInterface $formFactory, array $defaultFormOptions = ['csrf_protection' => false])
 	{
 		$this->formFactory = $formFactory;
 		$this->defaultFormOptions = $defaultFormOptions;
@@ -59,9 +51,6 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 		//}
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
 	public function factor(OciBasketInterface $basket): FormBuilderInterface
 	{
 		$formData = $this->buildFormData($basket);

@@ -7,14 +7,11 @@ use Doctrine\Common\Collections\Collection;
 
 class OciBasket implements OciBasketInterface
 {
-	/**
-	 * @var Collection
-	 */
-	private $items;
+	private Collection $items;
 
 	public function __construct(Collection $items = null)
 	{
-		$this->items = $items ? $items : new ArrayCollection();
+		$this->items = $items ?: new ArrayCollection();
 	}
 
 	public function getItems(): Collection

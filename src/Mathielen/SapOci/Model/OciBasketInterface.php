@@ -6,8 +6,5 @@ use Doctrine\Common\Collections\Collection;
 
 interface OciBasketInterface
 {
-	/**
-	 * @return Collection
-	 */
-	public function getItems();
+	public function getItems(): Collection;
 }

@@ -4,7 +4,7 @@ namespace Mathielen\SapOci\Model;
 
 class Oci50BasketItem extends Oci40BasketItem
 {
-	private $tax;
+	private ?string $tax;
 
 	public function getTax(): ?string
 	{

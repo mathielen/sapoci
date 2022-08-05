@@ -6,69 +6,69 @@ use Assert\Assertion;
 
 class OciBaseBasketItem implements OciBasketItemInterface
 {
-	private $description;
+	private ?string $description = null;
 
-	private $matnr;
+	private ?string $matnr = null;
 
-	private $quantity;
+	private ?string $quantity = null;
 
-	private $unit;
+	private ?string $unit = null;
 
-	private $price;
+	private ?string $price = null;
 
-	private $currency;
+	private ?string $currency = null;
 
-	private $priceUnit;
+	private ?string $priceUnit = null;
 
-	private $leadtime;
+	private ?string $leadtime = null;
 
-	private $longText;
+	private ?string $longText = null;
 
-	private $vendor;
+	private ?string $vendor = null;
 
-	private $vendorMat;
+	private ?string $vendorMat = null;
 
-	private $manufactCode;
+	private ?string $manufactCode = null;
 
-	private $manufactMat;
+	private ?string $manufactMat = null;
 
-	private $matGroup;
+	private ?string $matGroup = null;
 
-	private $service;
+	private ?string $service = null;
 
-	private $contract;
+	private ?string $contract = null;
 
-	private $contractItem;
+	private ?string $contractItem = null;
 
-	private $extQuoteId;
+	private ?string $extQuoteId = null;
 
-	private $extQuoteItem;
+	private ?string $extQuoteItem = null;
 
-	private $extProductId;
+	private ?string $extProductId = null;
 
-	private $attachment;
+	private ?string $attachment = null;
 
-	private $attachmentTitle;
+	private ?string $attachmentTitle = null;
 
-	private $attachmentPurpose;
+	private ?string $attachmentPurpose = null;
 
-	private $extSchemaType;
+	private ?string $extSchemaType = null;
 
-	private $extCategoryId;
+	private ?string $extCategoryId = null;
 
-	private $extCategory;
+	private ?string $extCategory = null;
 
-	private $sldSysName;
+	private ?string $sldSysName = null;
 
-	private $custField1;
+	private ?string $custField1 = null;
 
-	private $custField2;
+	private ?string $custField2 = null;
 
-	private $custField3;
+	private ?string $custField3 = null;
 
-	private $custField4;
+	private ?string $custField4 = null;
 
-	private $custField5;
+	private ?string $custField5 = null;
 
 	public static function create(): self
 	{
@@ -562,7 +562,7 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		];
 	}
 
-	public static function addFieldToFormData($formFieldName, $fieldValue, $lineNum, array &$formData): void
+	public static function addFieldToFormData(string $formFieldName, string $fieldValue, int $lineNum, array &$formData): void
 	{
 		if ('NEW_ITEM-LONGTEXT' === $formFieldName) {
 			$formData['NEW_ITEM-LONGTEXT_'.$lineNum.':132'][] = $fieldValue;
