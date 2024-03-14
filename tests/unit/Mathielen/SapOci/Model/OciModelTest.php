@@ -26,7 +26,7 @@ class OciModelTest extends TestCase
 		$this->assertTrue(true); //all good
 	}
 
-	public function getConstraintedMethodnames()
+	public static function getConstraintedMethodnames(): iterable
 	{
 		$rfl = new \ReflectionClass(Oci50BasketItem::class);
 

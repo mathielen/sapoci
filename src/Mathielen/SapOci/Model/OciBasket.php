@@ -2,19 +2,20 @@
 
 namespace Mathielen\SapOci\Model;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Assert\Assertion;
 
 class OciBasket implements OciBasketInterface
 {
-	private Collection $items;
+	private array $items;
 
-	public function __construct(Collection $items = null)
+	public function __construct(array $items = [])
 	{
-		$this->items = $items ?: new ArrayCollection();
+		Assertion::allIsInstanceOf($items, OciBasketItemInterface::class);
+
+		$this->items = $items;
 	}
 
-	public function getItems(): Collection
+	public function getItems(): iterable
 	{
 		return $this->items;
 	}

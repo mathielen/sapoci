@@ -19,11 +19,10 @@
     }
   ],
   "require": {
-    "php": "^7.4",
-    "symfony/form": "~3.4|~4.0",
-    "symfony/http-foundation": "~3.4|~4.0",
-    "beberlei/assert": "@stable",
-    "doctrine/collections": "^1.4"
+    "php": "^8.0",
+    "symfony/form": "~5.4",
+    "symfony/http-foundation": "~5.4",
+    "beberlei/assert": "^3.3.2"
   },
   "require-dev": {
     "phpunit/phpunit": "@stable"
