@@ -57,7 +57,7 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 
 		$formBuilder = $this
 			->formFactory
-			->createNamedBuilder('default', FormType::class, $formData, $this->defaultFormOptions);
+			->createNamedBuilder('', FormType::class, $formData, $this->defaultFormOptions);
 
 		foreach (\array_keys($formData) as $formFieldName) {
 			$this->addFormField($formBuilder, $formFieldName);
