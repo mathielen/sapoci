@@ -20,8 +20,8 @@
   ],
   "require": {
     "php": "^8.0",
-    "symfony/form": "~5.4",
-    "symfony/http-foundation": "~5.4",
+    "symfony/form": "^5.0 || ^6.0",
+    "symfony/http-foundation": "^5.0 || ^6.0",
     "beberlei/assert": "^3.3.2"
   },
   "require-dev": {
