@@ -562,17 +562,6 @@ class OciBaseBasketItem implements OciBasketItemInterface
 		];
 	}
 
-	public static function addFieldToFormData(string $formFieldName, string $fieldValue, int $lineNum, array &$formData): void
-	{
-		if ('NEW_ITEM-LONGTEXT' === $formFieldName) {
-			$formData['NEW_ITEM-LONGTEXT_'.$lineNum.':132'][] = $fieldValue;
-
-			return;
-		}
-
-		$formData[$formFieldName][$lineNum] = $fieldValue;
-	}
-
 	public function toArray(): array
 	{
 		return \array_filter(\get_object_vars($this));

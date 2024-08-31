@@ -2,6 +2,7 @@
 
 namespace Mathielen\SapOci;
 
+use Mathielen\SapOci\FieldTransformer\FieldTransformerInterface;
 use Mathielen\SapOci\Model\OciBasketInterface;
 use Mathielen\SapOci\Model\OciBasketItemInterface;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -13,30 +14,54 @@ use Symfony\Component\Form\FormFactoryInterface;
 class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 {
 	private FormFactoryInterface $formFactory;
+
 	private array $defaultFormOptions;
+
+	/**
+	 * @var FieldTransformerInterface[]
+	 */
+	private array $fieldTransformers = [];
 
 	public function __construct(FormFactoryInterface $formFactory, array $defaultFormOptions = ['csrf_protection' => false])
 	{
 		$this->formFactory = $formFactory;
 		$this->defaultFormOptions = $defaultFormOptions;
+
+		//default special field transformer for LONGTEXT
+		$this->addFieldTransformer('NEW_ITEM-LONGTEXT',  new class implements FieldTransformerInterface {
+			public function transform(string $fieldValue, int $lineNum, array &$formData): void {
+				$formData['NEW_ITEM-LONGTEXT_'.$lineNum.':132'][] = $fieldValue;
+			}
+		});
+	}
+
+	public function addFieldTransformer(string $fieldName, FieldTransformerInterface $fieldTransformer): void
+	{
+		$this->fieldTransformers[$fieldName] = $fieldTransformer;
 	}
 
 	protected function buildFormData(OciBasketInterface $basket): array
 	{
 		$formData = [];
-		$i = 1; //must start at 1
+		$lineNum = 1; //must start at 1
 
 		/** @var OciBasketItemInterface $item */
 		foreach ($basket->getItems() as $item) {
-			foreach ($item->getFields() as $fieldName => $value) {
-				if (null === $value) {
+			foreach ($item->getFields() as $fieldName => $fieldValue) {
+				if (null === $fieldValue) {
 					continue;
 				}
 
-				$item->addFieldToFormData($fieldName, $value, $i, $formData);
+				if (isset($this->fieldTransformers[$fieldName])) {
+					$this->fieldTransformers[$fieldName]->transform($fieldValue, $lineNum, $formData);
+
+					continue;
+				}
+
+				$formData[$fieldName][$lineNum] = $fieldValue;
 			}
 
-			++$i;
+			++$lineNum;
 		}
 
 		return $formData;
@@ -44,11 +69,7 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 
 	protected function addFormField(FormBuilderInterface $formBuilder, $formFieldName): void
 	{
-		/*if (preg_match('/^NEW_ITEM-LONGTEXT/', $formFieldName)) {
-			$formBuilder->add($formFieldName, HiddenType::class, ['label' => false]);
-		} else {*/
 		$formBuilder->add($formFieldName, CollectionType::class, ['entry_type' => HiddenType::class, 'label' => false]);
-		//}
 	}
 
 	public function factor(OciBasketInterface $basket): FormBuilderInterface
