@@ -30,7 +30,7 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 		//default special field transformer for LONGTEXT
 		$this->addFieldTransformer('NEW_ITEM-LONGTEXT',  new class implements FieldTransformerInterface {
 			public function transform(string $fieldValue, int $lineNum, array &$formData): void {
-				$formData['NEW_ITEM-LONGTEXT_'.$lineNum.':132'][] = $fieldValue;
+				$formData['NEW_ITEM-LONGTEXT_'.$lineNum.':132']['0'] = $fieldValue;
 			}
 		});
 	}

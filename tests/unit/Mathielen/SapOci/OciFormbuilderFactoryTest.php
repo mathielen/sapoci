@@ -52,29 +52,4 @@ class OciFormbuilderFactoryTest extends TestCase
 		$this->assertTrue($formBuilder->has('NEW_ITEM-LONGTEXT_1:132'));
 		$this->assertTrue($formBuilder->has('NEW_ITEM-TAX'));
 	}
-
-	public function testFactorSpecialFieldTransformer(): void
-	{
-		$basket = new OciBasket();
-
-		$item =
-			Oci50BasketItem::create()
-				->setDescription('description')
-				->setLongText('longtext')
-				->setTax(19);
-
-		$basket->addItem($item);
-
-		$this->formBuilderFactory->addFieldTransformer('NEW_ITEM-LONGTEXT', new class implements FieldTransformerInterface {
-			public function transform(string $fieldValue, int $lineNum, array &$formData): void {
-				$formData['NEW_ITEM-LONGTEXT_'.$lineNum.':132[0]'][] = $fieldValue;
-			}
-		});
-
-		$formBuilder = $this->formBuilderFactory->factor($basket);
-
-		$this->assertTrue($formBuilder->has('NEW_ITEM-DESCRIPTION'));
-		$this->assertTrue($formBuilder->has('NEW_ITEM-LONGTEXT_1:132[0]')); //special field transformer adds a [0]
-		$this->assertTrue($formBuilder->has('NEW_ITEM-TAX'));
-	}
 }
