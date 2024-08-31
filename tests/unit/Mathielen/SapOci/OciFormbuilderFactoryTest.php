@@ -2,7 +2,6 @@
 
 namespace Mathielen\SapOci;
 
-use Mathielen\SapOci\FieldTransformer\FieldTransformerInterface;
 use Mathielen\SapOci\Model\Oci50BasketItem;
 use Mathielen\SapOci\Model\OciBasket;
 use PHPUnit\Framework\TestCase;
@@ -13,10 +12,8 @@ use Symfony\Component\Form\FormFactoryInterface;
 
 class OciFormbuilderFactoryTest extends TestCase
 {
-	/**
-	 * @var OciFormbuilderFactory
-	 */
-	private $formBuilderFactory;
+
+	private OciFormbuilderFactory $formBuilderFactory;
 
 	protected function setUp(): void
 	{
