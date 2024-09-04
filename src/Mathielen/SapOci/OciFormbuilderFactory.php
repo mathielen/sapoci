@@ -5,6 +5,7 @@ namespace Mathielen\SapOci;
 use Mathielen\SapOci\FieldTransformer\FieldTransformerInterface;
 use Mathielen\SapOci\Model\OciBasketInterface;
 use Mathielen\SapOci\Model\OciBasketItemInterface;
+use Mathielen\SapOci\Type\LongTextType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -30,7 +31,7 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 		//default special field transformer for LONGTEXT
 		$this->addFieldTransformer('NEW_ITEM-LONGTEXT',  new class implements FieldTransformerInterface {
 			public function transform(string $fieldValue, int $lineNum, array &$formData): void {
-				$formData['NEW_ITEM-LONGTEXT_'.$lineNum.':132']['0'] = $fieldValue;
+				$formData['NEW_ITEM-LONGTEXT_'.$lineNum.':132'] = $fieldValue;
 			}
 		});
 	}
@@ -67,8 +68,14 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 		return $formData;
 	}
 
-	protected function addFormField(FormBuilderInterface $formBuilder, $formFieldName): void
+	protected static function addFormField(FormBuilderInterface $formBuilder, string $formFieldName): void
 	{
+		if (LongTextType::isLongTextFieldname($formFieldName)) {
+			$formBuilder->add($formFieldName, LongTextType::class);
+
+			return;
+		}
+
 		$formBuilder->add($formFieldName, CollectionType::class, ['entry_type' => HiddenType::class, 'label' => false]);
 	}
 
@@ -81,7 +88,7 @@ class OciFormbuilderFactory implements OciFormbuilderFactoryInterface
 			->createNamedBuilder('', FormType::class, $formData, $this->defaultFormOptions);
 
 		foreach (\array_keys($formData) as $formFieldName) {
-			$this->addFormField($formBuilder, $formFieldName);
+			self::addFormField($formBuilder, $formFieldName);
 		}
 
 		return $formBuilder;
