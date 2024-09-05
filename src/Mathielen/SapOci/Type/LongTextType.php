@@ -12,7 +12,7 @@ class LongTextType extends AbstractType
 
 	public static function isLongTextFieldname(string $formFieldName): bool
 	{
-		return preg_match('/^NEW_ITEM-LONGTEXT_\d:132$/', $formFieldName);
+		return preg_match('/^NEW_ITEM-LONGTEXT_\d+:132$/', $formFieldName);
 	}
 
 	public function buildView(FormView $view, FormInterface $form, array $options): void
