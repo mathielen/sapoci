@@ -60,15 +60,15 @@ class OciBaseBasketItem implements OciBasketItemInterface
 
 	private ?string $sldSysName = null;
 
-	private ?string $custField1 = null;
+	protected ?string $custField1 = null;
 
-	private ?string $custField2 = null;
+	protected ?string $custField2 = null;
 
-	private ?string $custField3 = null;
+	protected ?string $custField3 = null;
 
-	private ?string $custField4 = null;
+	protected ?string $custField4 = null;
 
-	private ?string $custField5 = null;
+	protected ?string $custField5 = null;
 
 	public static function create(): self
 	{
